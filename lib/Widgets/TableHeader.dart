@@ -9,7 +9,7 @@ class TableHeader extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-        color: Colors.grey[300],
+        color: Colors.black12,
       ),
       child: const Row(
         children: [

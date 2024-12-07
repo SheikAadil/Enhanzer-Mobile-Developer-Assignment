@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen>
         ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
             LocationDateDisplay(
@@ -255,6 +255,8 @@ class _HomeScreenState extends State<HomeScreen>
       return;
     }
 
+    FocusScope.of(context).unfocus();
+
     final price = double.tryParse(priceController.text) ?? 0;
     final quantity = int.tryParse(quantityController.text) ?? 1;
     final discount = double.tryParse(discountController.text) ?? 0;
@@ -278,6 +280,8 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> saveTransaction() async {
+    FocusScope.of(context).unfocus();
+
     for (var item in addedItems) {
       await DatabaseHelper.instance.saveTransaction({
         'name': item['name'],
